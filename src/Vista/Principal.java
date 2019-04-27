@@ -5,12 +5,14 @@
  */
 package Vista;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Mateo
  */
 public class Principal extends javax.swing.JFrame {
-
+    
     AgregarPelicula GuiPelicula;
     DatosPelicula GUIdatospelicula;
     Administrador GUIadministrador;
@@ -100,19 +102,30 @@ public class Principal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-
+        
         GuiPelicula = new AgregarPelicula();
         GuiPelicula.show();
         this.dispose();
-        
+
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
         
-        GUIdatospelicula = new DatosPelicula();
-        GUIdatospelicula.show();
-        this.dispose();
-     
+        int Respuesta = JOptionPane.showConfirmDialog(null, "¿Ha agregado los datos de alguna película?");
+        
+        if (Respuesta == 0) {
+            
+            GUIdatospelicula = new DatosPelicula();
+            GUIdatospelicula.show();
+            this.dispose();
+            
+        } else {
+            
+            JOptionPane.showMessageDialog(null, "Es importante insertar los datos de alguna película(s)" + "\npara que se despliegue adecuadamente la información " + "\nde una o varias películas." 
+            + "\n\nNota: puede agregar los datos de una película seleccionando"+"\nla pestaña [ Película ], y posteriormente la opción [ Agregar ].");
+            
+        }//Fin método
+
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
@@ -120,7 +133,7 @@ public class Principal extends javax.swing.JFrame {
         GUIadministrador = new Administrador();
         GUIadministrador.show();
         this.dispose();
-        
+
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     /**
