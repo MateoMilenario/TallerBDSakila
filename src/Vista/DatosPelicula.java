@@ -515,7 +515,7 @@ public class DatosPelicula extends javax.swing.JFrame {
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
 
-        int Respuesta = JOptionPane.showConfirmDialog(null, "¿Está seguro/a que desea modificar los datos de la película");
+        int Respuesta = JOptionPane.showConfirmDialog(null, "¿Está seguro/a que desea modificar los datos de la película?");
 
         if (Respuesta == 0) {
 
