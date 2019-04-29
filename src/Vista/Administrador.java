@@ -373,11 +373,12 @@ public class Administrador extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 3, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel4)
-                            .addComponent(idCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton2)
-                            .addComponent(jLabelNombreCliente))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabelNombreCliente, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jLabel4)
+                                .addComponent(idCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jButton2)))
                         .addGap(13, 13, 13)
                         .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                     .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -450,6 +451,15 @@ public class Administrador extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
 
+        //Método que permitirá limpiar el linkedList cada vez que se busque nuevos clientes
+        if(peliculasRentaCliente.isEmpty() == false){
+            
+            peliculasRentaCliente.clear();
+            
+        }//Fin if
+        
+        //*****************************************************************************************
+        
         String codigoCliente = idCliente.getText();
 
         jLabelNombreCliente.setText("Nombre cliente:  " + EncontrarNombreCliente(codigoCliente));
@@ -491,6 +501,14 @@ public class Administrador extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 
+        if(peliculasParticipacionActor.isEmpty() == false){
+            
+            peliculasParticipacionActor.clear();
+            
+        }//Fin if
+        
+        //*****************************************************************************************
+        
         String codigoA = CodigoActor.getText();
 
         jLabelNombreActor.setText("Nombre actor:  " + EncontrarNombreActor(codigoA));
@@ -516,7 +534,9 @@ public class Administrador extends javax.swing.JFrame {
             tablaPeliculasActores.addRow(datos);
 
         }//Fin for
-
+        
+        System.out.println(peliculasParticipacionActor.size());
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
