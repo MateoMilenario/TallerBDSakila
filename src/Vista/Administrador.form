@@ -28,14 +28,17 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <Component id="jScrollPane1" min="-2" pref="1096" max="-2" attributes="0"/>
+              <Component id="jScrollPane1" min="-2" pref="1115" max="-2" attributes="0"/>
               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jScrollPane1" min="-2" pref="611" max="-2" attributes="0"/>
+          <Group type="102" alignment="0" attributes="0">
+              <Component id="jScrollPane1" min="-2" pref="849" max="-2" attributes="0"/>
+              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+          </Group>
       </Group>
     </DimensionLayout>
   </Layout>
@@ -105,7 +108,7 @@
                                                   <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
                                                   <Component id="jSeparator4" alignment="0" min="-2" pref="278" max="-2" attributes="0"/>
                                               </Group>
-                                              <EmptySpace min="219" pref="464" max="32767" attributes="0"/>
+                                              <EmptySpace min="219" pref="483" max="32767" attributes="0"/>
                                           </Group>
                                           <Component id="jScrollPane3" max="32767" attributes="0"/>
                                           <Group type="102" alignment="0" attributes="0">
@@ -132,14 +135,52 @@
                                       <Component id="jSeparator12" min="-2" pref="11" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="jScrollPane7" pref="662" max="32767" attributes="0"/>
                                           <Group type="102" attributes="0">
                                               <Group type="103" groupAlignment="0" attributes="0">
                                                   <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
                                                   <Component id="jSeparator13" min="-2" pref="561" max="-2" attributes="0"/>
-                                                  <Component id="jButton4" min="-2" max="-2" attributes="0"/>
                                               </Group>
                                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                          </Group>
+                                          <Group type="102" attributes="0">
+                                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                                  <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="jDateChooserFechaI" pref="143" max="32767" attributes="0"/>
+                                                  <Group type="102" alignment="0" attributes="0">
+                                                      <Component id="HoraI" min="-2" pref="31" max="-2" attributes="0"/>
+                                                      <EmptySpace max="-2" attributes="0"/>
+                                                      <Component id="jLabel13" min="-2" max="-2" attributes="0"/>
+                                                      <EmptySpace max="-2" attributes="0"/>
+                                                      <Component id="MinI" min="-2" pref="31" max="-2" attributes="0"/>
+                                                      <EmptySpace max="-2" attributes="0"/>
+                                                      <Component id="jLabel14" min="-2" max="-2" attributes="0"/>
+                                                      <EmptySpace max="-2" attributes="0"/>
+                                                      <Component id="SegI" min="-2" pref="32" max="-2" attributes="0"/>
+                                                  </Group>
+                                                  <Component id="jLabel12" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="jLabel11" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                  <Group type="102" alignment="0" attributes="0">
+                                                      <Component id="HoraF" min="-2" pref="31" max="-2" attributes="0"/>
+                                                      <EmptySpace max="-2" attributes="0"/>
+                                                      <Component id="jLabel16" min="-2" max="-2" attributes="0"/>
+                                                      <EmptySpace max="-2" attributes="0"/>
+                                                      <Component id="MinF" min="-2" pref="31" max="-2" attributes="0"/>
+                                                      <EmptySpace max="-2" attributes="0"/>
+                                                      <Component id="jLabel17" min="-2" max="-2" attributes="0"/>
+                                                      <EmptySpace max="-2" attributes="0"/>
+                                                      <Component id="SegF" min="-2" pref="31" max="-2" attributes="0"/>
+                                                  </Group>
+                                                  <Component id="jLabel15" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="jDateChooserFechaF" alignment="0" max="32767" attributes="0"/>
+                                              </Group>
+                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Component id="jScrollPane7" max="32767" attributes="0"/>
+                                                  <Group type="102" attributes="0">
+                                                      <Component id="jButton4" min="-2" pref="138" max="-2" attributes="0"/>
+                                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                                  </Group>
+                                              </Group>
                                           </Group>
                                       </Group>
                                   </Group>
@@ -236,16 +277,50 @@
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="jScrollPane6" min="-2" pref="186" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jButton3" max="32767" attributes="0"/>
+                              <Component id="jButton3" pref="26" max="32767" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="jSeparator13" min="-2" pref="10" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jScrollPane7" min="-2" pref="188" max="-2" attributes="0"/>
-                              <EmptySpace max="32767" attributes="0"/>
-                              <Component id="jButton4" min="-2" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="jDateChooserFechaI" min="-2" pref="28" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="jLabel12" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="HoraI" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabel13" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="MinI" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabel14" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="SegI" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <Component id="jLabel11" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="jDateChooserFechaF" min="-2" pref="28" max="-2" attributes="0"/>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <Component id="jLabel15" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="HoraF" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabel16" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="MinF" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabel17" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="SegF" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" attributes="0">
+                                      <Component id="jScrollPane7" pref="0" max="32767" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="jButton4" min="-2" pref="28" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
                           </Group>
                           <Component id="jSeparator12" alignment="0" max="32767" attributes="0"/>
                       </Group>
@@ -591,7 +666,7 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="12" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Datos rentas en un per&#xed;odo de tiempo: 2005-05-25 00:19:27 a 2005-05-25 6:44:53 "/>
+                <Property name="text" type="java.lang.String" value="Datos rentas en un per&#xed;odo de tiempo: Formato --&gt; YY/MM/DD 00:00:00"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JSeparator" name="jSeparator13">
@@ -640,7 +715,7 @@
             </Container>
             <Component class="javax.swing.JButton" name="jButton4">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Desplegar"/>
+                <Property name="text" type="java.lang.String" value="Buscar"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton4ActionPerformed"/>
@@ -653,6 +728,92 @@
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton5ActionPerformed"/>
               </Events>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabel10">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Fecha Inicial"/>
+              </Properties>
+            </Component>
+            <Component class="com.toedter.calendar.JDateChooser" name="jDateChooserFechaI">
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabel11">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Fecha Final"/>
+              </Properties>
+            </Component>
+            <Component class="com.toedter.calendar.JDateChooser" name="jDateChooserFechaF">
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabel12">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Hora Inicial"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="HoraI">
+              <Properties>
+                <Property name="horizontalAlignment" type="int" value="4"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabel13">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Tahoma" size="11" style="1"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value=":"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabel14">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Tahoma" size="11" style="1"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value=":"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="MinI">
+              <Properties>
+                <Property name="horizontalAlignment" type="int" value="4"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="SegI">
+              <Properties>
+                <Property name="horizontalAlignment" type="int" value="4"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="HoraF">
+              <Properties>
+                <Property name="horizontalAlignment" type="int" value="4"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabel15">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Hora Final"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabel16">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Tahoma" size="11" style="1"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value=":"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="MinF">
+              <Properties>
+                <Property name="horizontalAlignment" type="int" value="4"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabel17">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Tahoma" size="11" style="1"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value=":"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="SegF">
+              <Properties>
+                <Property name="horizontalAlignment" type="int" value="4"/>
+              </Properties>
             </Component>
           </SubComponents>
         </Container>

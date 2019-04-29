@@ -11,6 +11,7 @@ import Control.ControlPelicula;
 import Modelo.Actor;
 import Modelo.Cliente;
 import Modelo.Pelicula;
+import java.util.Date;
 import java.util.LinkedList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -37,9 +38,29 @@ public class Administrador extends javax.swing.JFrame {
     LinkedList<String> peliculasCategoriaTerror;
     LinkedList<String> RentasPeriodoTiempo;
 
+    String FechaInicial;
+    String FechaFinal;
+
+    String horI;
+    String minI;
+    String segI;
+
+    String horF;
+    String minF;
+    String segF;
+
+    String TiempoInicial;
+    String TiempoFinal;
+
+    boolean Entrar;
+
     public Administrador() {
         initComponents();
         this.setLocationRelativeTo(this);
+
+        FechaInicial = null;
+        FechaFinal = null;
+
         datosClientePelicula = new LinkedList<>();
         peliculasRentaCliente = new LinkedList<>();
         datosActoresPelicula = new LinkedList<>();
@@ -48,6 +69,10 @@ public class Administrador extends javax.swing.JFrame {
         RentasPeriodoTiempo = new LinkedList<>();
         TraerClientesRegistrados();
         TraerActores();
+
+        Entrar = true;
+        TiempoInicial = null;
+        TiempoFinal = null;
 
     }
 
@@ -105,6 +130,22 @@ public class Administrador extends javax.swing.JFrame {
         jTableRenta = new javax.swing.JTable();
         jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
+        jLabel10 = new javax.swing.JLabel();
+        jDateChooserFechaI = new com.toedter.calendar.JDateChooser();
+        jLabel11 = new javax.swing.JLabel();
+        jDateChooserFechaF = new com.toedter.calendar.JDateChooser();
+        jLabel12 = new javax.swing.JLabel();
+        HoraI = new javax.swing.JTextField();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        MinI = new javax.swing.JTextField();
+        SegI = new javax.swing.JTextField();
+        HoraF = new javax.swing.JTextField();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        MinF = new javax.swing.JTextField();
+        jLabel17 = new javax.swing.JLabel();
+        SegF = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -235,7 +276,7 @@ public class Administrador extends javax.swing.JFrame {
         });
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel9.setText("Datos rentas en un período de tiempo: 2005-05-25 00:19:27 a 2005-05-25 6:44:53 ");
+        jLabel9.setText("Datos rentas en un período de tiempo: Formato --> YY/MM/DD 00:00:00");
 
         jTableRenta.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -250,7 +291,7 @@ public class Administrador extends javax.swing.JFrame {
         ));
         jScrollPane7.setViewportView(jTableRenta);
 
-        jButton4.setText("Desplegar");
+        jButton4.setText("Buscar");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton4ActionPerformed(evt);
@@ -263,6 +304,38 @@ public class Administrador extends javax.swing.JFrame {
                 jButton5ActionPerformed(evt);
             }
         });
+
+        jLabel10.setText("Fecha Inicial");
+
+        jLabel11.setText("Fecha Final");
+
+        jLabel12.setText("Hora Inicial");
+
+        HoraI.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+
+        jLabel13.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel13.setText(":");
+
+        jLabel14.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel14.setText(":");
+
+        MinI.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+
+        SegI.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+
+        HoraF.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+
+        jLabel15.setText("Hora Final");
+
+        jLabel16.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel16.setText(":");
+
+        MinF.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+
+        jLabel17.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel17.setText(":");
+
+        SegF.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -315,7 +388,7 @@ public class Administrador extends javax.swing.JFrame {
                                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(jLabel3)
                                             .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGap(219, 464, Short.MAX_VALUE))
+                                        .addGap(219, 483, Short.MAX_VALUE))
                                     .addComponent(jScrollPane3)
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addComponent(jLabel4)
@@ -337,13 +410,45 @@ public class Administrador extends javax.swing.JFrame {
                                 .addComponent(jSeparator12, javax.swing.GroupLayout.PREFERRED_SIZE, 11, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jScrollPane7, javax.swing.GroupLayout.DEFAULT_SIZE, 662, Short.MAX_VALUE)
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(jLabel9)
-                                            .addComponent(jSeparator13, javax.swing.GroupLayout.PREFERRED_SIZE, 561, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jButton4))
-                                        .addGap(0, 0, Short.MAX_VALUE))))))
+                                            .addComponent(jSeparator13, javax.swing.GroupLayout.PREFERRED_SIZE, 561, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(0, 0, Short.MAX_VALUE))
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(jLabel10)
+                                            .addComponent(jDateChooserFechaI, javax.swing.GroupLayout.DEFAULT_SIZE, 143, Short.MAX_VALUE)
+                                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                                .addComponent(HoraI, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(jLabel13)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(MinI, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(jLabel14)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(SegI, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addComponent(jLabel12)
+                                            .addComponent(jLabel11)
+                                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                                .addComponent(HoraF, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(jLabel16)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(MinF, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(jLabel17)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(SegF, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addComponent(jLabel15)
+                                            .addComponent(jDateChooserFechaF, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jScrollPane7)
+                                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(0, 0, Short.MAX_VALUE))))))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(326, 326, 326)
                         .addComponent(jLabel1)
@@ -418,15 +523,44 @@ public class Administrador extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, 26, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel9)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jSeparator13, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton4))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel10)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jDateChooserFechaI, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel12)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(HoraI, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel13)
+                                    .addComponent(MinI, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel14)
+                                    .addComponent(SegI, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jLabel11)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jDateChooserFechaF, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jLabel15)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(HoraF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel16)
+                                    .addComponent(MinF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel17)
+                                    .addComponent(SegF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addComponent(jSeparator12))
                 .addContainerGap(59, Short.MAX_VALUE))
         );
@@ -438,12 +572,14 @@ public class Administrador extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1096, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1115, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 611, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 849, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
@@ -452,14 +588,13 @@ public class Administrador extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
 
         //Método que permitirá limpiar el linkedList cada vez que se busque nuevos clientes
-        if(peliculasRentaCliente.isEmpty() == false){
-            
+        if (peliculasRentaCliente.isEmpty() == false) {
+
             peliculasRentaCliente.clear();
-            
+
         }//Fin if
-        
+
         //*****************************************************************************************
-        
         String codigoCliente = idCliente.getText();
 
         jLabelNombreCliente.setText("Nombre cliente:  " + EncontrarNombreCliente(codigoCliente));
@@ -501,14 +636,13 @@ public class Administrador extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 
-        if(peliculasParticipacionActor.isEmpty() == false){
-            
+        if (peliculasParticipacionActor.isEmpty() == false) {
+
             peliculasParticipacionActor.clear();
-            
+
         }//Fin if
-        
+
         //*****************************************************************************************
-        
         String codigoA = CodigoActor.getText();
 
         jLabelNombreActor.setText("Nombre actor:  " + EncontrarNombreActor(codigoA));
@@ -534,9 +668,9 @@ public class Administrador extends javax.swing.JFrame {
             tablaPeliculasActores.addRow(datos);
 
         }//Fin for
-        
+
         System.out.println(peliculasParticipacionActor.size());
-        
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -569,30 +703,86 @@ public class Administrador extends javax.swing.JFrame {
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
 
-        ControlCliente Ccliente = new ControlCliente();
+        Date date1 = jDateChooserFechaI.getDate();
+        Date date2 = jDateChooserFechaF.getDate();
 
-        RentasPeriodoTiempo = Ccliente.ConsultaRentasPeriodo();
+        horF = HoraF.getText();
+        minF = MinF.getText();
+        segF = SegF.getText();
 
-        String data[][] = {};
-        String Cabeza[] = {"Fecha renta", "Nombre cliente", "Nombre película"};
+        horI = HoraI.getText();
+        minI = MinI.getText();
+        segI = SegI.getText();
 
-        tablaRentaTiempo = new DefaultTableModel(data, Cabeza);
+        if (date1 != null && date2 != null) {
 
-        jTableRenta.setModel(tablaRentaTiempo);
+            Entrar = true;
 
-        for (int i = 0; i < RentasPeriodoTiempo.size(); i++) {
+        } else {
 
-            String datosSplit[] = RentasPeriodoTiempo.get(i).split(";");
+            JOptionPane.showMessageDialog(null, "Por favor, seleccionar una fecha inicial y final.", "Advertencia", JOptionPane.ERROR_MESSAGE);
+            Entrar = false;
 
-            String FechaRenta = datosSplit[0];
-            String NombreCliente = datosSplit[1];
-            String NombrePelicula = datosSplit[2];
+        }//Fin if
 
-            String datos[] = {FechaRenta, NombreCliente, NombrePelicula};
+        //Válidar Campos Horas
+        ValidarHoraInicial();
+        ValirdarHoraFinal();
 
-            tablaRentaTiempo.addRow(datos);
+        //*************************************************************************************************************************************
+        if (Entrar) {
 
-        }//Fin for     
+            if(RentasPeriodoTiempo.isEmpty() == false){
+                
+                RentasPeriodoTiempo.clear();
+                
+            }//Fin if
+            
+            long Tiempo = date1.getTime();
+            long Tiempo2 = date2.getTime();
+
+            java.sql.Date fecha = new java.sql.Date(Tiempo);
+            java.sql.Date fecha2 = new java.sql.Date(Tiempo2);
+
+            if (TiempoInicial.equals("00:00:00") || TiempoFinal.equals("00:00:00")) {
+
+                FechaInicial = fecha.toString().substring(2, 10);
+                FechaFinal = fecha2.toString().substring(2, 10);
+               
+            } else {
+
+                FechaInicial = fecha.toString().substring(2, 10) + " " + TiempoInicial;
+                FechaFinal = fecha2.toString().substring(2, 10) + " " + TiempoFinal;
+
+            }//Fin if
+
+            ControlCliente Ccliente = new ControlCliente();
+
+            RentasPeriodoTiempo = Ccliente.ConsultaRentasPeriodo(FechaInicial, FechaFinal);
+
+            //*******************************************************************************
+            String data[][] = {};
+            String Cabeza[] = {"Fecha renta", "Nombre cliente", "Nombre película"};
+
+            tablaRentaTiempo = new DefaultTableModel(data, Cabeza);
+
+            jTableRenta.setModel(tablaRentaTiempo);
+
+            for (int i = 0; i < RentasPeriodoTiempo.size(); i++) {
+
+                String datosSplit[] = RentasPeriodoTiempo.get(i).split(";");
+
+                String FechaRenta = datosSplit[0];
+                String NombreCliente = datosSplit[1];
+                String NombrePelicula = datosSplit[2];
+
+                String datos[] = {FechaRenta, NombreCliente, NombrePelicula};
+
+                tablaRentaTiempo.addRow(datos);
+
+            }//Fin for  
+
+        }//Fin condición
 
     }//GEN-LAST:event_jButton4ActionPerformed
 
@@ -727,15 +917,217 @@ public class Administrador extends javax.swing.JFrame {
 
     }//Fin método
 
+    public void ValidarHoraInicial() {
+
+        if (segI.equals("") && minI.equals("") && horI.equals("")) {
+
+            TiempoInicial = "00:00:00";
+
+        } else {
+
+            if (segI.equals("")) {
+
+                segI = "00";
+
+            }//Fin if
+
+            if (minI.equals("")) {
+
+                minI = "00";
+
+            }//Fin if
+
+            if (horI.equals("")) {
+
+                horI = "00";
+
+            }//Fin if
+
+            ValidarDuracionHoraInicial();
+
+        }//Fin if principal
+
+    }//Fin método
+
+    public void ValirdarHoraFinal() {
+
+        if (segF.equals("") && minF.equals("") && horF.equals("")) {
+
+            TiempoFinal = "00:00:00";
+
+        } else {
+
+            if (segF.equals("")) {
+
+                segF = "00";
+
+            }//Fin if
+
+            if (minF.equals("")) {
+
+                minF = "00";
+
+            }//Fin if
+
+            if (horF.equals("")) {
+
+                horF = "00";
+
+            }//Fin if
+
+            ValidarDuracionHoraFinal();
+
+        }//Fin if principal
+
+    }//Fin método
+
+    public void ValidarDuracionHoraInicial() {
+
+        boolean entrar = true;
+
+        if (Integer.parseInt(segI) >= 60) {
+
+            JOptionPane.showMessageDialog(null, "Campo: segundos " + "\nDuración máxima aceptados es: 59 segundos.", "Advertencia", JOptionPane.ERROR_MESSAGE);
+            entrar = false;
+
+        }//Fin if
+
+        if (Integer.parseInt(minI) >= 60) {
+
+            JOptionPane.showMessageDialog(null, "Campo: minutos " + "\nDuración máxima aceptados es: 59 minutos.", "Advertencia", JOptionPane.ERROR_MESSAGE);
+            entrar = false;
+
+        }//Fin if
+
+        if (Integer.parseInt(horI) > 25) {
+
+            JOptionPane.showMessageDialog(null, "Campo: Horas " + "\nSolo se acepta hasta 24 horas.", "Advertencia", JOptionPane.ERROR_MESSAGE);
+            entrar = false;
+
+        }//Fin if
+
+        if (entrar) {
+
+            //Invoca el método para organizar la duración con el formato 00:00:00
+            OrganizarDuracionHoraInicial();
+            TiempoInicial = horI + ":" + minI + ":" + segI;
+
+        } else {
+
+            Entrar = false;
+
+        }//Fin if
+
+    }//Fin método
+
+    public void OrganizarDuracionHoraInicial() {
+
+        if (segI.length() == 1) {
+
+            segI = "0" + segI;
+
+        }//Fin if
+
+        if (minI.length() == 1) {
+
+            minI = "0" + minI;
+
+        }//Fin if
+
+        if (horI.length() == 1) {
+
+            horI = "0" + horI;
+
+        }//Fin if
+
+    }//Fin método
+
+    public void ValidarDuracionHoraFinal() {
+
+        boolean entrar = true;
+
+        if (Integer.parseInt(segF) >= 60) {
+
+            JOptionPane.showMessageDialog(null, "Campo: segundos " + "\nDuración máxima aceptados es: 59 segundos.", "Advertencia", JOptionPane.ERROR_MESSAGE);
+            entrar = false;
+
+        }//Fin if
+
+        if (Integer.parseInt(minF) >= 60) {
+
+            JOptionPane.showMessageDialog(null, "Campo: minutos " + "\nDuración máxima aceptados es: 59 minutos.", "Advertencia", JOptionPane.ERROR_MESSAGE);
+            entrar = false;
+
+        }//Fin if
+
+        if (Integer.parseInt(horF) > 25) {
+
+            JOptionPane.showMessageDialog(null, "Campo: Horas " + "\nSolo se acepta hasta 24 horas.", "Advertencia", JOptionPane.ERROR_MESSAGE);
+            entrar = false;
+
+        }//Fin if
+
+        if (entrar) {
+
+            //Invoca el método para organizar la duración con el formato 00:00:00
+            OrganizarDuracionHoraFinal();
+            TiempoFinal = horF + ":" + minF + ":" + segF;
+
+        } else {
+
+            Entrar = false;
+
+        }//Fin if
+
+    }//Fin método
+
+    public void OrganizarDuracionHoraFinal() {
+
+        if (segF.length() == 1) {
+
+            segF = "0" + segF;
+
+        }//Fin if
+
+        if (minF.length() == 1) {
+
+            minF = "0" + minF;
+
+        }//Fin if
+
+        if (horF.length() == 1) {
+
+            horF = "0" + horF;
+
+        }//Fin if
+
+    }//Fin método
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField CodigoActor;
+    private javax.swing.JTextField HoraF;
+    private javax.swing.JTextField HoraI;
+    private javax.swing.JTextField MinF;
+    private javax.swing.JTextField MinI;
+    private javax.swing.JTextField SegF;
+    private javax.swing.JTextField SegI;
     private javax.swing.JTextField idCliente;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
+    private com.toedter.calendar.JDateChooser jDateChooserFechaF;
+    private com.toedter.calendar.JDateChooser jDateChooserFechaI;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

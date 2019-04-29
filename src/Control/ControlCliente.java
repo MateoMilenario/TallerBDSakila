@@ -38,33 +38,33 @@ public class ControlCliente {
 
                 String nombreCliente = rset.getString("NombreCliente");
                 String Pkcliente = rset.getString("customer_id");
-                
+
                 cEnviar = new Cliente(nombreCliente, Pkcliente);
-                
+
                 clientesDatos.add(cEnviar);
-                
+
             }//Fin while
 
         } catch (SQLException ex) {
-           
+
             JOptionPane.showMessageDialog(null, "Fallo en la lectura de datos: " + ex, "Error", JOptionPane.ERROR_MESSAGE);
-            
+
         }//Fin try
 
         return clientesDatos;
 
     }//Fin método
 
-    public LinkedList<String> ConsultaRentasPeriodo() {
-        
+    public LinkedList<String> ConsultaRentasPeriodo(String fechaInicial, String fechaFinal) {
+
         LinkedList<String> RentaTiempo = new LinkedList<>();
 
         ResultSet rset = null;
         Cliente objcliente = new Cliente();
-        
+
         String cadenaDato = "";
-        
-        String TraerSQL = "call ConsultaRentaTiempo()";
+
+        String TraerSQL = "call ConsultaRentaTiempo('" + fechaInicial + "', '" + fechaFinal + "')";
 
         rset = objcliente.TraerRentasTiempo(TraerSQL);
 
@@ -76,7 +76,7 @@ public class ControlCliente {
                 String NombrePelicula = rset.getString("title");
                 String FechaRenta = rset.getString("rental_date");
 
-                cadenaDato = FechaRenta + ";" + NombreCliente + ";" + NombrePelicula ;
+                cadenaDato = FechaRenta + ";" + NombreCliente + ";" + NombrePelicula;
 
                 RentaTiempo.add(cadenaDato);
 
@@ -89,7 +89,7 @@ public class ControlCliente {
         }//Fin try
 
         return RentaTiempo;
-        
+
     }
 
 }
